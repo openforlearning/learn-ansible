@@ -1,0 +1,19 @@
+---
+- first_name: "Mani Kumar"
+  last_name: "Durgavazula"
+  addresses: 
+    - type: permanent
+      flat: 210
+      Floor: 2nd
+      Appt: VSR
+
+    - type: Current
+      flat: 210
+      Floor: 2nd
+      Appt: VSR
+- skills:
+    os: Linux
+    IDE: VSCode
+    CM: Ansible
+...
+

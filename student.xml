@@ -1,0 +1,9 @@
+<Student>
+    <firstname>ManiKumar</firstname>
+    <lastname>Durgavazula</lastname>
+    <address>
+        <flat>210</flat>
+        <Block>A</Block>
+        <Appt>VSR</Appt>
+    </address>
+</Student>

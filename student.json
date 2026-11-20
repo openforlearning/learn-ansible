@@ -1,0 +1,33 @@
+{
+
+    "firstname": "ManiKumar",
+    "lastname": "Durgavazula",
+    "addresses": [
+        {
+
+            "type": "Permanent",
+            "Flat": "210",
+            "Floor": "second",
+            "Block": "A",
+            "Appt": "VSR"
+
+        },
+        
+        {
+
+           "type": "Current",
+            "Flat": "210",
+            "Floor": "2nd",
+            "Block": "A",
+            "Appt": "VSR" 
+        }
+
+    ],
+
+    "Skills": {
+
+        "OS": "Linux",
+        "IDE": "VSCode",
+        "CM": "Ansible"
+    }
+}
