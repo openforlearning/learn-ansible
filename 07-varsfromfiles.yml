@@ -1,6 +1,6 @@
 ---
 - name: variables from files
-  hosts: local
+  hosts: localhost
   connection: local 
   vars_files:
     - details.yml
