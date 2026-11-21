@@ -1,0 +1,19 @@
+---
+- name: vars from prompt
+  hosts: localhost
+  connection: local
+  vars_prompt:
+    - name: "my_name"
+      prompt: "Enter your name"
+      private: no
+    - name: "learning"
+      prompt: "What are you learning?"
+      private: no
+    - name: "practice"
+      prompt: "How often do you practice?"
+      private: no
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}"
+...
