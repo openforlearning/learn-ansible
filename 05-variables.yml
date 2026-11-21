@@ -1,7 +1,7 @@
 ---
 - name: variable example
   hosts: Salt
-  become: yes
+  #become: yes
   vars:
     my_name: "Mani Kumar"
     learning: "Ansible"
