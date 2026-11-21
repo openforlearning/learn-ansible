@@ -1,0 +1,9 @@
+---
+- name: vars in inventory
+  hosts: localhost
+  connection: local 
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}"
+...
