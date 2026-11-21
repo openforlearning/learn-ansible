@@ -7,7 +7,7 @@
   tasks:
     - name: Print the variables
       debug:
-        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }} on {{ date }}" 
+        msg: "Hello I am from tasks {{ my_name }}, learning {{ learning }}, and practicing {{ practice }} on {{ date }}" 
 
   vars_prompt:
     - name: "my_name"
