@@ -1,0 +1,38 @@
+---
+- name: checking vars from multiple sources
+  hosts: localhost
+  connection: local 
+  vars_files:
+    - details.yml
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }} on {{ date }}" 
+
+  vars_prompt:
+    - name: "my_name"
+      prompt: "Enter your name"
+      private: no
+    - name: "learning"
+      prompt: "What are you learning?"
+      private: no
+    - name: "practice"
+      prompt: "How often do you practice?"
+      private: no
+    - name: "date"
+      prompt: "Enter the date"
+      private: no
+
+# Checking the precedence of variables from different sources. The order of precedence is as follows:
+# 1. Command line values (highest precedence)
+# 2. Task vars (only for the task)
+# 3. Block vars (only for tasks in the block)
+# 4. Role and include vars (only for the role or include)
+# 5. Play vars (only for the play)
+# 6. Play vars_files (only for the play)
+# 7. Play vars_prompt (only for the play)
+# 8. Inventory vars (host_vars and group_vars)
+# 9. Facts (gathered by the setup module)
+# 10. Registered vars (only for the task)
+# 11. Set_facts (only for the play)
+# 12. Role defaults (lowest precedence)
