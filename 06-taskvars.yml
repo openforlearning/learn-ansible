@@ -1,6 +1,7 @@
 ---
 - name: demo on task variables
   hosts: local
+  connection: local
   vars:
     my_name: "Mani Kumar"
     learning: "Ansible"
