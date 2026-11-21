@@ -1,0 +1,9 @@
+---
+- name: variables from files
+  hosts: local
+  vars_files:
+    - details.yml
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }} on {{ date }}"
