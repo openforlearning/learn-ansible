@@ -13,7 +13,8 @@
         msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}"
     
 - name: Print the variables
-  hosts: local
+  hosts: localhost
+  connection: local
   vars:
     my_name: "Mani Kumar1"
     learning: "Ansible1"
