@@ -1,0 +1,25 @@
+---
+- name: demo on task variables
+  hosts: local
+  vars:
+    my_name: "Mani Kumar"
+    learning: "Ansible"
+    practice: "Irregularly"
+  #become: yes
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}"
+    
+- name: Print the variables
+  hosts: local
+  vars:
+    my_name: "Mani Kumar1"
+    learning: "Ansible1"
+    practice: "Irregularly1"
+  #become: yes
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: "Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}"
+...
