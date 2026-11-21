@@ -1,6 +1,6 @@
 ---
 - name: demo on task variables
-  hosts: local
+  hosts: localhost
   connection: local
   vars:
     my_name: "Mani Kumar"
