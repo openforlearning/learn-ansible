@@ -1,0 +1,12 @@
+---
+- name: variable example
+  hosts: Salt
+  become: yes
+  vars:
+    my_name: "Mani Kumar"
+    learning: "Ansible"
+    practice: "Irregularly"
+  tasks:
+    - name: Print the variables
+      debug:
+        msg: Hello I am {{ my_name }}, learning {{ learning }}, and practicing {{ practice }}.
