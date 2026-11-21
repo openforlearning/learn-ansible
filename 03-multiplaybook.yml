@@ -1,0 +1,26 @@
+---
+- name: Multi Playbook Demo
+    - name: Play 1
+      hosts: localhost
+      connection: local
+      tasks:
+        - name: print Hello World
+          debug:
+            msg: "Hello Ansible World"
+
+    - name: Play 2
+      hosts: localhost
+      connection: local
+      tasks:
+        - name: print Goodbye World
+          debug:
+            msg: "Goodbye Ansible World"
+
+- name: Multi playbook Demo 2
+      hosts: localhost
+      connection: local
+      tasks:
+        - name: print Hello Ansible World
+          debug:
+            msg: "Hello Ansible World"
+...
