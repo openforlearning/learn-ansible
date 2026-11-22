@@ -25,15 +25,15 @@
 
     - name: Install multiple packages
       apt:
-        name: "{{ packages.name }}"
-        state: "{{ packages.state }}"
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
       loop: "{{ packages }}"
       when: ansible_facts['os_family'] == "Debian"
 
     - name: Install multiple packages on RedHat-based systems
       dnf:
-        name: "{{ packages.name }}"
-        state: "{{ packages.state }}"
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
       loop: "{{ packages }}"
       when: ansible_facts['os_family'] == "RedHat"
 ...
