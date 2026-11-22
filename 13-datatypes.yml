@@ -1,0 +1,29 @@
+---
+- name: Datatypes in Ansible
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Display different datatypes
+      debug:
+        msg:
+          String: "This is a string"
+          Integer: 42
+          Float: 3.14
+          Boolean: true
+          List: [1, 2, 3, 4, 5]
+          Dictionary: {"key1": "value1", "key2": "value2"}
+          Null: null
+
+    - name: Display datatypes of another example
+      debug:
+        msg:
+          Company: "Netskope"
+          Tenurity: 95
+          Hours of work per day: 8.5
+          Work from Office: false
+          Technologies to work on: ["Ansible", "Salt", "Terraform", "PowerDNS", "Kubernetes", "BIND DNS"]
+          US Visit details: {"city": "Santa Clara", "Stay": 05, "Office": "HQ"}
+          Null: null
+...
