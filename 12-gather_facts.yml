@@ -18,7 +18,7 @@
           #Boot Time: "The system boot time is {{ ansible_facts['uptime'] }}"
           CPU Architecture: "The CPU architecture is {{ ansible_facts['architecture'] }}"
           #Disk Space: "The available disk space is {{ ansible_facts['ansible_mounts'][0]['size_available'] | human_readable }}"
-          Environment Variables: "The environment variables are {{ ansible_facts['env'] }}"
+          #Environment Variables: "The environment variables are {{ ansible_facts['env'] }}"
           Hostname: "The hostname is {{ ansible_facts['hostname'] }}"
 
 ...
