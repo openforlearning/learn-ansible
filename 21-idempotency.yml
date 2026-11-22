@@ -28,5 +28,5 @@
     - name: Print the user check result
       debug:
         msg: "User check result: {{ user_check.stdout }}"
-      when: user_check.rc == 0
+      #when: user_check.rc == 0
 ...
