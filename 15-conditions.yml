@@ -1,0 +1,29 @@
+---
+- name: Install nginx on remote hosts
+  hosts: localhost
+  connection: local
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Display the operating system family
+      debug:
+        msg: "The operating system family is {{ ansible_facts['os_family'] }}"
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Install nginx on RedHat-based systems
+      dnf:
+        name: nginx
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Install nginx on SUSE-based systems
+      zypper:
+        name: nginx
+        state: present
+      when: ansible_facts['os_family'] == "Suse"
+  ...
