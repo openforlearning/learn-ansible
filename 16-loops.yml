@@ -16,7 +16,7 @@
       - {"name": "vim", "state": "present"}
       - {"name": "htop", "state": "present"}
       - {"name": "tree", "state": "present"}
-      - {"name": "nginx", "state": "absent"}
+      - {"name": "nginx", "state": "present"}
 
   tasks:
     - name: Print each item in the list
