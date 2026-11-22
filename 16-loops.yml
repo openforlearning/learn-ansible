@@ -1,0 +1,39 @@
+---
+- name: Loops in Ansible
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    my_list:
+      - "apple"
+      - "banana"
+      - "cherry"
+    
+    packages:
+      - {"name": "git", "state": "present"}
+      - {"name": "curl", "state": "present"}
+      - {"name": "vim", "state": "present"}
+      - {"name": "htop", "state": "present"}
+      - {"name": "tree", "state": "present"}
+      - {"name": "nginx", "state": "absent"}
+
+  tasks:
+    - name: Print each item in the list
+      debug:
+        msg: "The item is {{ item }}" # Item is a special variable that represents the current item in the loop
+      loop: "{{ my_list }}"
+
+    - name: Install multiple packages
+      apt:
+        name: "{{ package.name }}"
+        state: "{{ package.state }}"
+      loop: "{{ packages }}"
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Install multiple packages on RedHat-based systems
+      dnf:
+        name: "{{ package.name }}"
+        state: "{{ package.state }}"
+      loop: "{{ packages }}"
+      when: ansible_facts['os_family'] == "RedHat"
+...
