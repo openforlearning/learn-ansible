@@ -1,0 +1,19 @@
+---
+- name: filters split function demo
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_prompt:
+    - name: "my_name"
+      prompt: "Enter your name"
+      private: no
+    - name: "learning"
+      prompt: "What are you learning?"
+      private: no
+    - name: "practice"
+      prompt: "How often do you practice?"
+      private: no
+  tasks:
+    - name: Print the variables using split filter
+      debug:
+        msg: "Hello I am {{ my_name | split(' ') }}, learning {{ learning | split(' ') }}, and practicing {{ practice | split(' ') }}"
