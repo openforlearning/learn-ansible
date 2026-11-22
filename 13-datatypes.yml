@@ -4,7 +4,7 @@
   connection: local
   gather_facts: no
   vars:
-    string_var: "This is a string"
+    string_var: "This is a string from play vars"
     integer_var: 42
     float_var: 3.14
     boolean_var: true
@@ -16,7 +16,7 @@
     - name: Display different datatypes
       debug:
         msg:
-          String: "This is a string"
+          String: "This is a string from task vars"
           Integer: 42
           Float: 3.14
           Boolean: true
