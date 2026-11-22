@@ -6,7 +6,6 @@
   become: yes
   tasks:
     - name: Command module example
-      command: whoami
       command: cat /etc/passwd | grep roboshop
       register: command_output
       ignore_errors: yes
@@ -16,7 +15,6 @@
         msg: "Command output: {{ command_output.stdout }}"
     
     - name: Shell module example
-      shell: echo "Hello, World!"
       shell: cat /etc/passwd | grep roboshop
       register: shell_output
 
@@ -24,4 +22,3 @@
       debug:
         msg: "Shell output: {{ shell_output.stdout }}"
 ...
-
