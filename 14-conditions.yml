@@ -3,11 +3,10 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  vars:
-    prompt:
-      - name: "number"
-        prompt: "Enter a number"
-        private: no
+  vars_prompt:
+    - name: "number"
+      prompt: "Enter a number"
+      private: no
 
   #tasks:
     #- name: Check if the number is even or odd
@@ -17,10 +16,10 @@
     - name: Check if the number is odd
       debug:
         msg: "The number {{ number }} is odd"
-      when: number % 2 != 0
+      when: (number | int) % 2 != 0
 
     - name: Check if the number is even
       debug:
         msg: "The number {{ number }} is even"
-      when: number % 2 == 0
+      when: (number | int) % 2 == 0
 ...
