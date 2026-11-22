@@ -2,7 +2,7 @@
 - name: Loops in Ansible
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: yes
   vars:
     my_list:
       - "apple"
@@ -25,15 +25,15 @@
 
     - name: Install multiple packages
       apt:
-        name: "{{ package.name }}"
-        state: "{{ package.state }}"
+        name: "{{ packages.name }}"
+        state: "{{ packages.state }}"
       loop: "{{ packages }}"
       when: ansible_facts['os_family'] == "Debian"
 
     - name: Install multiple packages on RedHat-based systems
       dnf:
-        name: "{{ package.name }}"
-        state: "{{ package.state }}"
+        name: "{{ packages.name }}"
+        state: "{{ packages.state }}"
       loop: "{{ packages }}"
       when: ansible_facts['os_family'] == "RedHat"
 ...
