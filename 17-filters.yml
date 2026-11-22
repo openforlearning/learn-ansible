@@ -1,0 +1,21 @@
+---
+- name: demo on filters
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  tasks:
+    - name: Print the operating system family
+      debug:
+        msg: "The operating system family is {{ ansible_facts['os_family'] | lower }}"
+
+    - name: Print the operating system family in uppercase
+      debug:
+        msg: "The operating system family is {{ ansible_facts['os_family'] | upper }}"
+
+    - name: Print the operating system family in title case
+      debug:
+        msg: "The operating system family is {{ ansible_facts['os_family'] | title }}"
+
+    - name: Print the operating system family with default value
+      debug:
+        msg: "The operating system family is {{ ansible_facts['os_family'] | default('mani_RHEL') }}"
