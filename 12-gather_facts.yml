@@ -11,7 +11,7 @@
 
     - name: Display specific gathered facts
       debug:
-        msg: 
+        msg: |
           OS Family and IP: "The operating system is {{ ansible_facts['os_family'] }} and the IP address is {{ ansible_facts['default_ipv4']['address'] }}"
           Processor Count: "The number of processors is {{ ansible_facts['processor_cores'] }}"
           Available Memory: "The available memory is {{ ansible_facts['memfree_mb'] }} MB"
