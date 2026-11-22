@@ -12,7 +12,7 @@
 
     - name: Print the command output
       debug:
-        msg: "Command output: {{ command_output.stdout }}"
+        msg: "Command output: {{ command_output }}"
     
     - name: Shell module example
       shell: cat /etc/passwd | grep roboshop
@@ -20,5 +20,5 @@
 
     - name: Print the shell output
       debug:
-        msg: "Shell output: {{ shell_output.stdout }}"
+        msg: "Shell output: {{ shell_output }}"
 ...
