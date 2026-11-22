@@ -17,3 +17,12 @@
     - name: Print the variables using split filter
       debug:
         msg: "Hello I am {{ my_name | split(' ') }}, learning {{ learning | split(' ') }}, and practicing {{ practice | split(' ') }}"
+
+    - name: trim filter demo
+      debug:
+        msg: "Hello I am {{ my_name | trim }}, learning {{ learning | trim }}, and practicing {{ practice | trim }}"
+
+    - name: Combine split and trim filters demo
+      debug:
+        msg: "Hello I am {{ my_name | split(' ') | trim }}, learning {{ learning | split(' ') | trim }}, and practicing {{ practice | split(' ') | trim }}"
+...
