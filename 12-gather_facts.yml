@@ -1,12 +1,13 @@
 ---
 - name: Gather facts from remote hosts
-  hosts: all
+  hosts: localhost
+  connection: local
   gather_facts: yes
 
   tasks:
-    - name: Display gathered facts
-      debug:
-        var: ansible_facts  
+    - #name: Display gathered facts
+      #debug:
+        #var: ansible_facts  
 
     - name: Display specific gathered facts
       debug:
@@ -19,5 +20,5 @@
           Disk Space: "The available disk space is {{ ansible_facts['ansible_mounts'][0]['size_available'] | human_readable }}"
           Environment Variables: "The environment variables are {{ ansible_facts['env'] }}"
           Hostname: "The hostname is {{ ansible_facts['hostname'] }}"
-          
+
 ...
