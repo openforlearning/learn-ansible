@@ -1,0 +1,32 @@
+---
+- name: create user
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  become: yes
+  vars_prompt:
+    - name: "person_name"
+      prompt: "Enter your name"
+      private: no
+  tasks:
+    - name: Print the greeting
+      debug:
+        msg: "Hello I am {{ person_name }}"
+      ignore_errors: yes
+
+    - name: Check if user is present
+      command: id {{ person_name }}
+      register: user_check
+      ignore_errors: yes
+
+    - name: Create user if not present
+      user:
+        name: "{{ person_name }}"
+        state: present
+      when: user_check.rc != 0
+
+    - name: Print the user check result
+      debug:
+        msg: "User check result: {{ user_check.stdout }}"
+      when: user_check.rc == 0
+...
