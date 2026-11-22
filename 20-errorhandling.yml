@@ -1,0 +1,25 @@
+---
+- name: error handling
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars_prompt:
+    - name: "person_name"
+      prompt: "Enter your name"
+      private: no
+  tasks:
+    - name: Print the greeting
+      debug:
+        msg: "Hello I am {{ person_name }}"
+      ignore_errors: yes
+      
+    - name: Check if user is present
+      command: id {{ person_name }}
+      register: user_check
+      ignore_errors: yes
+
+    - name: Print the user check result
+      debug:
+        msg: "User check result: {{ user_check.stdout }}"
+      when: user_check.rc == 0  
+...

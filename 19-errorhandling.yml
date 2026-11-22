@@ -12,9 +12,8 @@
       debug:
         msg: "Hello I am {{ person_name }}"
       ignore_errors: yes
+
     - name: Check if user is present
       command: id {{ person_name }}
-      register: user_check
-      ignore_errors: no
 ...
 
