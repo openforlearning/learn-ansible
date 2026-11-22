@@ -7,4 +7,17 @@
     - name: Display gathered facts
       debug:
         var: ansible_facts  
+
+    - name: Display specific gathered facts
+      debug:
+        msg: 
+          OS Family and IP: "The operating system is {{ ansible_facts['os_family'] }} and the IP address is {{ ansible_facts['default_ipv4']['address'] }}"
+          Processor Count: "The number of processors is {{ ansible_facts['processor_cores'] }}"
+          Available Memory: "The available memory is {{ ansible_facts['memfree_mb'] }} MB"
+          Boot Time: "The system boot time is {{ ansible_facts['uptime'] }}"
+          CPU Architecture: "The CPU architecture is {{ ansible_facts['architecture'] }}"
+          Disk Space: "The available disk space is {{ ansible_facts['ansible_mounts'][0]['size_available'] | human_readable }}"
+          Environment Variables: "The environment variables are {{ ansible_facts['env'] }}"
+          Hostname: "The hostname is {{ ansible_facts['hostname'] }}"
+          
 ...
