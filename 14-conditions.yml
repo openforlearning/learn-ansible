@@ -1,0 +1,26 @@
+---
+- name: even and odd numbers
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    prompt:
+      - name: "number"
+        prompt: "Enter a number"
+        private: no
+
+  #tasks:
+    #- name: Check if the number is even or odd
+     # debug:
+       # msg: "The number {{ number }} is {% if number % 2 == 0 %}even{% else %}odd{% endif %}."
+  tasks:
+    - name: Check if the number is odd
+      debug:
+        msg: "The number {{ number }} is odd"
+      when: number % 2 != 0
+
+    - name: Check if the number is even
+      debug:
+        msg: "The number {{ number }} is even"
+      when: number % 2 == 0
+...
